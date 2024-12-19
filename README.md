@@ -4,7 +4,7 @@ Convert camel case to snake case (and vice versa) in Lua code, using Lua.
 
 ## Usage
 
-```bash
+```
 ./ouroboros.lua <filename> [-c]
 
 -c      from snake case to camel case
