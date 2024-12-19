@@ -1,3 +1,19 @@
 # ouroboros
 
-Convert camelcase to snake case in Lua code, using Lua.
+Convert camel case to snake case (and vice versa) in Lua code, using Lua.
+
+## Usage
+
+```bash
+./ouroboros.lua <filename> [-c]
+
+-c      from snake case to camel case
+```
+
+## Usage for rewriting file
+
+Simply redirect `stdout` to the input file.
+
+```bash
+./ouroboros.lua sample.lua > sample.lua
+```
