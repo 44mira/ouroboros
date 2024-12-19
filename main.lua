@@ -1,4 +1,7 @@
+#!/usr/bin/env lua
+
 local lexer = require('lexer')
+local replacer = require('replacer')
 local utils = require('utils')
 
 if #arg < 1 then
@@ -22,4 +25,7 @@ local content = filehandle:read('*a')
 filehandle:close()
 
 local tokens = lexer(content)
---[[ this is where the replacer goes ]]
+-- print(utils.display_tbl(tokens))
+local replaced = replacer(tokens, content, to_snake)
+
+print(replaced)
