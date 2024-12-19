@@ -31,12 +31,24 @@
             |   <var_expr>'['<expr>']'
             |   <var_expr>.<IDENTIFIER>
 
+<var_expr>  ::= <var>
+            |   <fn_call>
+            |   ( <expr> )
+
 <do_block>  ::= do <block> end
+
+<fn_call>   ::= <var_expr> <fn_args>
+            |   <var_expr> : <IDENTIFIER> <fn_args>
 
 <fn_name>   ::= <IDENTIFIER> { . <IDENTIFIER> } [ : <IDENTIFIER> ]
 <closure>   ::= function <fn_body>
-<fn_body>   ::= ( [<fn_args>] ) <block> end
-<fn_args>   ::= <var_list> [, ...]
+<fn_body>   ::= ( [<fn_params>] ) <block> end
+
+<fn_args>   ::= <table_constructor>
+            |   <STRING>
+            |   ( <expr_list> )
+
+<fn_params> ::= <var_list> [, ...]
             |   ...
 
 <table_constructor> ::= { [<table_fields>] }
