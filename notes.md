@@ -3,6 +3,8 @@
 ## Lua refined grammar
 
 ```
+<block> ::= { <statement> [;]} [<last_expr> [;]]
+
 <statement> ::= <var_list> = <expr_list>
             |   <fn_call>
             |   <do_block>
@@ -25,6 +27,9 @@
             |   <table_constructor>
             |   <expr> <binary_op> <expr>
             |   <unary_op> <expr>
+
+<last_expr> ::= return <expr>
+            |   break
 
 <var_list>  ::= <var> {, <var>}
 <var>       ::= <IDENTIFIER>
