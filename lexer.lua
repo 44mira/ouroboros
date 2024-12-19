@@ -1,4 +1,4 @@
----@alias Identifier { index: integer, length: integer }
+---@alias Identifier { index: integer, length: integer, word: string }
 
 local keywords = {
   "and", "break", "do", "else", "elseif", "end",
@@ -28,7 +28,7 @@ local function tokenize_word(tokens, word, index)
   end
 
   if not_keyword then
-    table.insert(tokens, { index = index, length = #word })
+    table.insert(tokens, { index = index, length = #word, word = word })
   end
 end
 
@@ -41,10 +41,16 @@ local function tokenize(content)
 
   local word = ''
   local index = 0
+  local current_index = 1
   for c in content:gmatch('.') do
     index = index + 1
+
+    if word == '' then
+      current_index = index
+    end
+
     if c:match('%s') ~= nil then
-      tokenize_word(tokens, word, index)
+      tokenize_word(tokens, word, current_index)
       word = ''
     else
       word = word .. c
