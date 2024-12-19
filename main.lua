@@ -1,10 +1,19 @@
 local lexer = require('lexer')
 local utils = require('utils')
 
--- if #arg < 1 then
---   print("Please provide file to modify.")
---   return 1
--- end
+if #arg < 1 then
+  print("Please provide file to modify.")
+  return 1
+end
+
+local to_snake = true
+if #arg > 1 then
+  for _, s in ipairs(arg) do
+    if s:match('%-c') ~= nil then
+      to_snake = false
+    end
+  end
+end
 
 -- read the contents
 local filename = arg[1] or 'main.lua'
