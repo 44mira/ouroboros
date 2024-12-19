@@ -4,7 +4,7 @@ Convert camel case to snake case (and vice versa) in Lua code, using Lua.
 
 ## Installation
 
-Simply clone this repository and (optionally) add the Lua executable to your `PATH`.
+Clone this repository and (optionally) add the Lua executable to your `PATH`.
 
 ```bash
 git clone https://github.com/44mira/ouroboros.git
